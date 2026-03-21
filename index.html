@@ -1,102 +1,86 @@
-/* General styling */
-body { 
-    font-family: Arial, sans-serif; 
-    margin: 0; 
-    padding: 0; 
-    background: #f5f5f5; 
-    color: #222; 
-}
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teo Moulas | Musician</title>
 
-/* Header styling */
-header { 
-    background: #1c1c1c; 
-    color: white; 
-    padding: 10px 20px; 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-}
-header h1 { 
-    margin: 0; 
-    font-size: 24px; 
-}
-nav a { 
-    color: white; 
-    margin: 0 10px; 
-    text-decoration: none; 
-    font-weight: bold; 
-}
-nav a:hover { 
-    text-decoration: underline; 
-}
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 
-/* Container */
-.container { 
-    max-width: 1000px; 
-    margin: auto; 
-    padding: 20px; 
-}
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 
-/* Intro section */
-.intro { 
-    text-align: center; 
-    margin: 30px 0; 
-}
-.intro h2 { 
-    font-size: 28px; 
-    margin-bottom: 10px; 
-}
-.intro p { 
-    font-size: 18px; 
-    line-height: 1.6; 
-}
+<body>
 
-/* Social icons */
-.social-icons { 
-    text-align: center; 
-    margin: 20px 0; 
-}
-.social-icons a { 
-    margin: 0 10px; 
-    font-size: 28px; 
-    color: #1c1c1c; 
-    text-decoration: none; 
-}
-.social-icons a:hover { 
-    color: #007bff; 
-}
+<header>
+    <h1>TEO MOULAS</h1>
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#music">MUSIC</a>
+        <a href="#booking">BOOKING</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+</header>
 
-/* Map section */
-.map { 
-    margin: 30px 0; 
-    text-align: center; 
-}
-.map iframe { 
-    width: 100%; 
-    max-width: 600px; 
-    height: 400px; 
-    border: 0; 
-}
+<!-- HERO -->
+<section id="home" class="hero">
+    <h2>Professional Musician</h2>
+    <p>Piano • Keys • Guitar • Live Events</p>
+    <a href="#booking" class="btn">Book Me</a>
+</section>
 
-/* Footer */
-.footer { 
-    background: #1c1c1c; 
-    color: white; 
-    text-align: center; 
-    padding: 20px 10px; 
-    margin-top: 30px; 
-}
+<!-- MUSIC -->
+<section id="music" class="section">
+    <h2>My Music</h2>
+    <audio controls>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+</section>
 
-/* Home button */
-.home-btn { 
-    display: inline-block; 
-    margin: 20px 0; 
-    padding: 10px 20px; 
-    background: #007bff; 
-    color: white; 
-    text-decoration: none; 
-    border-radius: 5px; 
-}
-.home-btn:hover { 
-    background: #0056b3; 
-}
+<!-- BOOKING -->
+<section id="booking" class="section">
+    <h2>Booking</h2>
+    <p>Available for weddings, events and performances</p>
+
+    <a href="https://wa.me/31600000000" class="btn">
+        <i class="fab fa-whatsapp"></i> WhatsApp Me
+    </a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+    <h2>Contact</h2>
+
+    <form action="mail.php" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <!-- Social -->
+    <div class="social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <!-- Map -->
+    <iframe 
+        src="https://www.google.com/maps?q=The+Hague&output=embed">
+    </iframe>
+
+</section>
+
+<!-- FLOAT WHATSAPP -->
+<a href="https://wa.me/31600000000" class="whatsapp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<footer>
+    <p>© 2026 TEO MOULAS MUSIC</p>
+</footer>
+
+</body>
+</html>
