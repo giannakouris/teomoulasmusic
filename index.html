@@ -10,7 +10,273 @@
     <style>
         :root {
             --gold: #d4af37;
+            --dark-bg<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teo Moulas | Greek & Global Music Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --gold: #d4af37;
             --dark-bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --light-text: #f4f4f4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--dark-bg); color: var(--light-text); line-height: 1.6; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(0,0,0,0.95);
+            position: fixed; width: 100%; z-index: 1000; border-bottom: 1px solid #222;
+        }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); font-weight: 700; letter-spacing: 2px; }
+        .nav-links { list-style: none; display: flex; align-items: center; }
+        .nav-links li { margin-left: 20px; }
+        .nav-links a { text-decoration: none; color: white; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* Hero Section with Microphone Background */
+        header {
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.95)), url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover; 
+            background-position: center;
+            background-attachment: fixed;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+            padding: 120px 20px 40px;
+        }
+
+        .animated-name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 10vw, 6rem);
+            color: var(--gold);
+            text-transform: uppercase;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); transform: scale(1); }
+            to { text-shadow: 0 0 35px rgba(212, 175, 55, 0.7); transform: scale(1.02); }
+        }
+
+        /* Biography & History Sections */
+        .bio-section { max-width: 900px; margin: 30px auto; padding: 25px; background: rgba(0,0,0,0.65); backdrop-filter: blur(8px); border-radius: 15px; border-left: 3px solid var(--gold); }
+        .bio-section h3 { color: var(--gold); margin-bottom: 15px; font-family: 'Playfair Display', serif; }
+
+        /* Frontpage Preview Rows - Updated for 6 images */
+        .preview-line { width: 90%; max-width: 1200px; margin-top: 50px; }
+        .preview-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 15px; 
+            margin: 20px 0; 
+        }
+        .preview-grid img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; border: 1px solid var(--gold); transition: 0.3s; }
+        .preview-grid img:hover { transform: scale(1.05); }
+        
+        /* Section Global Styling */
+        section { padding: 100px 10%; }
+        h2 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 30px; font-size: 2.5rem; border-bottom: 2px solid #222; display: inline-block; padding-bottom: 10px; }
+
+        /* Admin Dashboard */
+        .admin-box { display: none; background: #111; padding: 30px; border: 1px dashed var(--gold); border-radius: 10px; margin-bottom: 40px; }
+        .admin-box input, .admin-box textarea { width: 100%; padding: 12px; margin: 8px 0; background: #000; color: white; border: 1px solid #333; border-radius: 5px; }
+        .save-btn { background: var(--gold); color: black; border: none; padding: 12px 25px; font-weight: bold; cursor: pointer; border-radius: 5px; width: 100%; text-transform: uppercase; }
+
+        /* Grids */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+        .img-wrap { position: relative; height: 350px; overflow: hidden; border-radius: 10px; border: 1px solid #222; }
+        .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .yt-card { background: var(--card-bg); border-radius: 15px; overflow: hidden; border: 1px solid #222; }
+        .yt-card iframe { width: 100%; height: 250px; border: none; }
+
+        /* Booking Form */
+        .booking-container { background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid #333; }
+        .booking-form { display: flex; flex-direction: column; gap: 15px; }
+        .booking-form input, .booking-form textarea { padding: 15px; background: #000; border: 1px solid #444; color: white; border-radius: 8px; }
+
+        .contact-flex { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 50px; align-items: center; }
+        .social-icons a { color: var(--gold); font-size: 2.5rem; margin-right: 25px; transition: 0.3s; }
+        .social-icons a:hover { transform: translateY(-5px); color: white; }
+        .whatsapp-btn { color: #25d366 !important; }
+
+        footer { text-align: center; padding: 60px; background: #050505; border-top: 1px solid #222; }
+
+        @media (max-width: 768px) {
+            .contact-flex { grid-template-columns: 1fr; }
+            .preview-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">TEO MOULAS</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#fotos">Gallery</a></li>
+            <li><a href="#portfolio">Videos</a></li>
+            <li><a href="#contact">Book Now</a></li>
+            <li><a href="javascript:void(0)" onclick="handleAdminAuth()" id="admin-link" style="color:var(--gold)"><i class="fas fa-lock" id="lock-icon"></i> <span id="auth-text">Login</span></a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <h1 class="animated-name">Teo Moulas</h1>
+        <p style="letter-spacing: 5px; color: var(--gold); font-weight: 600; background: rgba(0,0,0,0.5); padding: 5px 20px; border-radius: 5px; margin-bottom: 20px;">SINGER • PIANIST • COMPOSER</p>
+
+        <div class="bio-section">
+            <h3>About Teo Moulas</h3>
+            <p>Teo Moulas is a distinguished Greek musician, renowned for his versatility as a singer, pianist, and composer. Specializing in the soul-stirring genres of <strong>Entexna</strong> and <strong>Laika</strong>, Teo bridges the gap between traditional Hellenic roots and modern global arrangements.</p>
+        </div>
+
+        <div class="bio-section" style="border-left: 0; border-right: 3px solid var(--gold);">
+            <h3>The Heritage of Greek Music</h3>
+            <p>From the ancient lyre to the modern bouzouki, Greek music is the pulse of the Mediterranean. Teo continues this legacy, keeping the flame of Greek culture alive for audiences worldwide.</p>
+        </div>
+        
+        <div class="preview-line">
+            <p style="text-align:left; font-size: 0.8rem; text-transform:uppercase; color:#aaa; letter-spacing: 3px; font-weight: 600; margin-bottom: 10px;">Visual Highlights</p>
+            <div class="preview-grid" id="hp-photo-line"></div>
+            <a href="#fotos" style="color: var(--gold); text-decoration: none; font-size: 0.8rem; float: right; margin-top: 10px; font-weight: 600;">VIEW FULL GALLERY →</a>
+        </div>
+    </header>
+
+    <section id="fotos">
+        <h2>Gallery</h2>
+        <div class="admin-box" id="admin-gallery">
+            <p style="margin-bottom:10px;">Upload from PC or enter Image URL:</p>
+            <input type="file" id="fileInput" accept="image/*">
+            <input type="text" id="imgUrlInput" placeholder="Paste Image URL here...">
+            <button class="save-btn" onclick="addPhoto()">Add to Gallery</button>
+        </div>
+        <div class="grid" id="photo-grid"></div>
+    </section>
+
+    <section id="portfolio" style="background:#080808">
+        <h2>Videos</h2>
+        <div class="admin-box" id="admin-video">
+            <input type="text" id="vidId" placeholder="Enter YouTube Video ID (e.g., dQw4w9WgXcQ)">
+            <input type="text" id="vidTitle" placeholder="Video Title">
+            <button class="save-btn" onclick="addVideo()">Save Video</button>
+        </div>
+        <div class="grid" id="video-grid"></div>
+    </section>
+
+    <section id="contact">
+        <h2>Book Now</h2>
+        <div class="contact-flex">
+            <div class="booking-container">
+                <form action="https://formsubmit.co/moulas20@gmail.com" method="POST" class="booking-form">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="name" placeholder="Your Full Name" required>
+                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input type="tel" name="phone" placeholder="Phone (WhatsApp preferred)">
+                    <textarea name="message" placeholder="Event details (Date, Location, Type of Music requested)" rows="5" required></textarea>
+                    <button type="submit" class="save-btn">Secure Booking</button>
+                </form>
+            </div>
+
+            <div style="padding-left: 20px;">
+                <h3 style="color:var(--gold); margin-bottom: 20px;">Connect with Teo</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/teo.moylas" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/teo_moulas_official/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/31687996179" class="whatsapp-btn"><i class="fab fa-whatsapp"></i></a>
+                </div>
+                <p style="margin-top: 30px; font-size: 0.9rem; color: #888;">For direct collaborations or private events, reach out via the form or social media.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 TEO MOULAS MUSIC • ALL RIGHTS RESERVED</p>
+        <div style="font-size:0.7rem; color:#444; margin-top:15px; letter-spacing: 2px;">CREATED BY GIANNIS GIANNAKOURIS @ITGG</div>
+    </footer>
+
+    <script>
+        let isAdmin = localStorage.getItem('teo_logged') === 'true';
+
+        function handleAdminAuth() {
+            if(isAdmin) { 
+                localStorage.setItem('teo_logged', 'false'); 
+                location.reload(); 
+            } else {
+                if(prompt("Enter Admin Password:") === "teo2026") {
+                    localStorage.setItem('teo_logged', 'true');
+                    location.reload();
+                }
+            }
+        }
+
+        let photos = JSON.parse(localStorage.getItem('teo_pics')) || [];
+        let videos = JSON.parse(localStorage.getItem('teo_vids')) || [];
+
+        function addPhoto() {
+            const file = document.getElementById('fileInput').files[0];
+            const url = document.getElementById('imgUrlInput').value;
+            if(file) {
+                const reader = new FileReader();
+                reader.onload = (e) => { photos.unshift(e.target.result); save('teo_pics', photos); };
+                reader.readAsDataURL(file);
+            } else if(url) { photos.unshift(url); save('teo_pics', photos); }
+        }
+
+        function addVideo() {
+            const id = document.getElementById('vidId').value.trim();
+            const title = document.getElementById('vidTitle').value.trim();
+            if(id) { videos.unshift({id: id, title: title || 'New Performance'}); save('teo_vids', videos); }
+        }
+
+        function deleteItem(type, index) {
+            if(!confirm("Delete this entry?")) return;
+            if(type === 'p') photos.splice(index, 1);
+            else videos.splice(index, 1);
+            save(type === 'p' ? 'teo_pics' : 'teo_vids', type === 'p' ? photos : videos);
+        }
+
+        function save(key, data) { localStorage.setItem(key, JSON.stringify(data)); location.reload(); }
+
+        window.onload = () => {
+            if(isAdmin) {
+                document.querySelectorAll('.admin-box').forEach(b => b.style.display = 'block');
+                document.getElementById('lock-icon').className = 'fas fa-unlock';
+                document.getElementById('auth-text').innerText = 'Logout';
+            }
+
+            // FRONT PAGE: Now pulling 6 photos instead of 3
+            document.getElementById('hp-photo-line').innerHTML = photos.slice(0,6).map(p => `<img src="${p}">`).join('') || '<p>No photos yet</p>';
+
+            document.getElementById('photo-grid').innerHTML = photos.map((p, i) => `
+                <div class="img-wrap">
+                    ${isAdmin ? `<button onclick="deleteItem('p',${i})" style="position:absolute; right:10px; top:10px; background:red; border:none; color:white; padding:5px; cursor:pointer; z-index:10;">Delete</button>` : ''}
+                    <img src="${p}">
+                </div>`).join('');
+
+            document.getElementById('video-grid').innerHTML = videos.map((v, i) => `
+                <div class="yt-card">
+                    <iframe src="https://www.youtube.com/embed/${v.id}"></iframe>
+                    <div style="padding:15px; display:flex; justify-content:space-between; align-items:center;">
+                        <h4 style="color:var(--gold);">${v.title}</h4>
+                        ${isAdmin ? `<button onclick="deleteItem('v',${i})" style="background:red; border:none; color:white; padding:5px 10px; cursor:pointer;">Del</button>` : ''}
+                    </div>
+                </div>`).join('');
+        };
+    </script>
+</body>
+</html>: #0a0a0a;
             --card-bg: #1a1a1a;
             --light-text: #f4f4f4;
         }
