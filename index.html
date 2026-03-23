@@ -1,86 +1,194 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teo Moulas | Musician</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teo Moulas | Premium Artist</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root {
+    --gold:#d4af37;
+    --dark:#0a0a0a;
+}
+
+body {margin:0;font-family:Poppins;background:var(--dark);color:white}
+
+/* NAV */
+nav {
+    display:flex;justify-content:space-between;
+    padding:15px 5%;
+    background:rgba(0,0,0,0.8);
+    position:fixed;width:100%;z-index:1000;
+}
+.logo {color:var(--gold);font-family:Playfair;font-size:1.5rem}
+
+nav ul {display:flex;list-style:none}
+nav li {margin-left:20px}
+nav a {color:white;text-decoration:none;font-size:0.8rem}
+
+/* HERO */
+header {
+height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
+background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4');
+background-size:cover;
+}
+
+h1 {
+font-size:5rem;color:var(--gold);
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow {
+from {text-shadow:0 0 10px gold}
+to {text-shadow:0 0 40px gold}
+}
+
+.btn {
+margin-top:20px;
+padding:12px 25px;
+background:var(--gold);
+border:none;
+cursor:pointer;
+}
+
+/* SECTION */
+section {padding:80px 10%}
+
+.grid {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.img-wrap img {width:100%;height:300px;object-fit:cover}
+
+/* FORM */
+form {background:#111;padding:20px;border-radius:10px}
+input,textarea {width:100%;padding:10px;margin:5px 0;background:#000;color:white;border:1px solid #333}
+
+button {background:var(--gold);border:none;padding:10px;cursor:pointer}
+
+/* ADMIN */
+.admin {display:none;margin-bottom:20px}
+
+/* SOCIAL */
+.social a {color:var(--gold);font-size:2rem;margin:10px}
+</style>
 </head>
 
 <body>
 
-<header>
-    <h1>TEO MOULAS</h1>
-    <nav>
-        <a href="#home">HOME</a>
-        <a href="#music">MUSIC</a>
-        <a href="#booking">BOOKING</a>
-        <a href="#contact">CONTACT</a>
-    </nav>
+<nav>
+<div class="logo">TEO MOULAS</div>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#videos">Videos</a></li>
+<li><a href="#book">Book Now</a></li>
+<li><a href="#" onclick="login()">🔒</a></li>
+</ul>
+</nav>
+
+<header id="home">
+<h1>Teo Moulas</h1>
+<p>Greek & Global Musician</p>
+
+<p style="max-width:600px">
+Experience the journey of Greek music blended with modern global sounds.
+</p>
+
+<button class="btn" onclick="window.open('https://en.wikipedia.org/wiki/Music_of_Greece')">
+Discover Greek Music
+</button>
 </header>
 
-<!-- HERO -->
-<section id="home" class="hero">
-    <h2>Professional Musician</h2>
-    <p>Piano • Keys • Guitar • Live Events</p>
-    <a href="#booking" class="btn">Book Me</a>
+<section id="gallery">
+<h2>Gallery</h2>
+
+<div class="admin" id="adminGallery">
+<input type="text" id="imgUrl" placeholder="Image URL">
+<button onclick="addPhoto()">Add Photo</button>
+</div>
+
+<div class="grid" id="galleryGrid"></div>
 </section>
 
-<!-- MUSIC -->
-<section id="music" class="section">
-    <h2>My Music</h2>
-    <audio controls>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
+<section id="videos">
+<h2>Videos</h2>
+
+<div class="admin" id="adminVideo">
+<input type="text" id="videoId" placeholder="YouTube ID">
+<button onclick="addVideo()">Add Video</button>
+</div>
+
+<div class="grid" id="videoGrid"></div>
 </section>
 
-<!-- BOOKING -->
-<section id="booking" class="section">
-    <h2>Booking</h2>
-    <p>Available for weddings, events and performances</p>
+<section id="book">
+<h2>Book Now</h2>
 
-    <a href="https://wa.me/31600000000" class="btn">
-        <i class="fab fa-whatsapp"></i> WhatsApp Me
-    </a>
-</section>
+<form action="https://formsubmit.co/moulas20@gmail.com" method="POST">
+<input type="hidden" name="_captcha" value="false">
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-    <h2>Contact</h2>
+<input name="name" placeholder="Name" required>
+<input name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Event details"></textarea>
 
-    <form action="mail.php" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+<button type="submit">Send Booking</button>
+</form>
 
-    <!-- Social -->
-    <div class="social">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-
-    <!-- Map -->
-    <iframe 
-        src="https://www.google.com/maps?q=The+Hague&output=embed">
-    </iframe>
+<div class="social">
+<a href="https://www.instagram.com/teo_moulas_official/" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://www.facebook.com/teo.moylas" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://wa.me/31687996179" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
 
 </section>
 
-<!-- FLOAT WHATSAPP -->
-<a href="https://wa.me/31600000000" class="whatsapp">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<script>
+let isAdmin=false;
 
-<footer>
-    <p>© 2026 TEO MOULAS MUSIC</p>
-</footer>
+function login(){
+let pass=prompt("Password:");
+if(pass==="teo2026"){
+isAdmin=true;
+document.querySelectorAll(".admin").forEach(e=>e.style.display="block");
+}
+}
+
+/* STORAGE */
+let photos=JSON.parse(localStorage.getItem("photos"))||[];
+let videos=JSON.parse(localStorage.getItem("videos"))||[];
+
+function addPhoto(){
+let url=document.getElementById("imgUrl").value;
+photos.push(url);
+localStorage.setItem("photos",JSON.stringify(photos));
+render();
+}
+
+function addVideo(){
+let id=document.getElementById("videoId").value;
+videos.push(id);
+localStorage.setItem("videos",JSON.stringify(videos));
+render();
+}
+
+function render(){
+document.getElementById("galleryGrid").innerHTML=
+photos.map(p=>`<div class="img-wrap"><img src="${p}"></div>`).join("");
+
+document.getElementById("videoGrid").innerHTML=
+videos.map(v=>`<iframe width="100%" height="200" src="https://www.youtube.com/embed/${v}"></iframe>`).join("");
+}
+
+render();
+</script>
 
 </body>
 </html>
